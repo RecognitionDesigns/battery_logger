@@ -3,7 +3,9 @@ import time
 
 with anki_vector.Robot() as robot:
     while True:
+        refTime = datetime.now().strftime(("%H:%M:%S"))
         battery_state = robot.get_battery_state()
+        print(refTime)
         print("Robot battery voltage: {0}".format(battery_state.battery_volts))
         print("Robot battery Level: {0}".format(battery_state.battery_level))
         
@@ -64,9 +66,10 @@ with anki_vector.Robot() as robot:
             status = (str("Vector's wheels are moving."))
             
         f= open("battery_log.txt","a+")
+        f.write(str(refTime) + ", ")
         f.write(str(battery_state.battery_volts) + ", ")
         f.write(str(battery_state.battery_level) + ", ")
         f.write((status) + "\n")
         f.close()
         
-        time.sleep(3)
+        time.sleep(5)
