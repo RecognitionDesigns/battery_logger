@@ -63,7 +63,7 @@ with anki_vector.Robot() as robot:
             print("Vector's wheels are moving.")
             status = (str("Vector's wheels are moving."))
             
-        f= open("battery_data/battery_log.txt","a+")
+        f= open("battery_log.txt","a+")
         f.write(str(battery_state.battery_volts) + ", ")
         f.write(str(battery_state.battery_level) + ", ")
         f.write((status) + "\n")
